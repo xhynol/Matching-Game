@@ -1,0 +1,199 @@
+
+@font-face{
+  font-family: font;
+  src: url(zh-cn.ttf);
+}
+@font-face{
+  font-family: a;
+  src: url(mermaid1001.ttf);
+}
+html{
+  min-height: 100vh;
+}
+
+body{
+   background-image: url(background.jpg);
+      }
+
+.title{
+  color: rgb(8, 0, 80);
+  font-family: a;
+  text-align: center;
+  font-size:35px;
+  
+}
+.gameinfo{
+  display: grid;
+  grid-template-columns: repeat(4,auto);
+  grid-gap: 10px;
+  margin: 20px;
+  justify-content: center;
+  perspective: 500px;
+  
+}
+
+.card{
+  position: relative;
+  height: 100px;
+  width: 80px; 
+}
+
+.card-face{
+  position: absolute;
+  width:100%;
+  height: 100%;
+  display: flex;
+  /* justify-content: makes the pic in card a bit*/
+  justify-content: center;
+  /* align-content:  */
+  align-items:center;
+  overflow: hidden;
+  /* hide the extra part of the picture sticking out*/
+  backface-visibility: hidden;
+  /* hides the back*/
+  border-radius:10px;
+  border-width:2px;
+  border-style: solid;
+  transition: transform 300ms ease-in-out;
+  /* animation thingy filp card*/
+}
+
+.pic{
+  position: absolute;
+  width:auto;
+  height:95%;
+}
+
+.overlay{
+  position:fixed;
+  display: none;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(221, 160, 221, 0.705);
+  z-index: 2; /* what is on top bigger # equals closer to top*/
+  font-size:50px;
+}
+
+
+.overlay.visible{
+  font-family: font;
+  position: fixed;
+  display: block;
+  text-align: center;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color:rgba(255, 255, 255, 0.787);
+  z-index: 2; /* what is on top bigger # equals closer to top*/
+  font-size:100px;
+  
+}.gameinformation{
+  font-family: a;
+  justify-content: center;
+  display: grid;
+  grid-gap: 20px;
+  grid-template-columns: repeat(2,auto);
+  color: rgb(255, 214, 239);
+  text-align: center;
+  font-size:25px;
+  margin: 10px;
+}
+
+
+.paimon{
+  height:90px;
+  width:auto;
+  transform:rotateY( 180deg);
+  transition: transform 200ms ease-in-out;
+}
+.paimon:hover{
+  transition: transform 200ms ease-in-out;
+  transform: rotateY(0deg);
+}
+.paimon:hover:before{
+   opacity:1;
+  transition: 0.3s opacity ease-in-out;
+  filter:blur(25px);
+  background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);  
+}
+.insults{
+  background: white;
+  height:20px;
+  width:250px;
+  border-radius:10px;
+  border-width:2px;
+  color:black;
+  font-size:15px;
+  text-align: center;
+
+  
+}
+
+.bottom-point{
+  justify-content: center;
+	width: 0;
+	height: 0;
+	border-left: 1vh solid transparent;
+	border-right: 1vh solid transparent;
+	border-top: 2vh solid white;
+  transform: translate(100px);
+}
+.r{
+  justify-content: center;
+  display: flex;
+  font-weight: bold;
+  color:#0a2957 ;
+  font-size: 20px;
+  margin-top: -2px;
+  
+}
+.button:hover{
+  background: skyblue;
+  border-color:rgb(174, 0, 255);
+}
+.button{
+  margin:auto;
+  height:20px;
+  width:80px;
+  background: pink;
+  border-radius:10px;
+  border-width:2px;
+  padding: 5px;
+  border-style: solid;
+  border-color:rgb(37, 19, 143);
+}
+.pc{
+  width:90%;
+  height:auto;
+}
+.card-front{
+ background-color: white;
+ border-color: rgb(0, 255, 85);
+ transform: rotateY(180deg);
+}
+.card-back:hover{
+  background: linear-gradient(120deg,rgb(253, 119, 213),rgb(253, 119, 213),white,rgb(221, 136, 255),rgb(170, 121, 248),rgb(0, 140, 255),rgb(75, 117, 255));
+  border-color: rgb(206, 72, 161);
+}
+
+.card.visible .card-back{
+  transform:rotateY(180deg);
+}
+.card.visible .card-front{
+  transform:rotateY(0deg);
+}
+.card-back{
+  background-color:white;
+  border-color:cyan;
+  
+}
